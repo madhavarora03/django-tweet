@@ -44,6 +44,9 @@ module.exports = {
     theme: {
         extend: {},
     },
+    daisyui: {
+        themes: ['dark'],
+    },
     plugins: [
         /**
          * '@tailwindcss/forms' is the forms plugin that provides a minimal styling
@@ -53,5 +56,6 @@ module.exports = {
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/aspect-ratio'),
+        require("daisyui")
     ],
 }
