@@ -8,15 +8,26 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     {% tailwind_css %}
 </head>
 <body>
 <nav class="navbar bg-primary text-primary-content shadow">
     <div class="navbar-start">
-        <a class="link link-hover font-bold text-2xl mx-4">Django Tweet App</a>
+        <a href="{% url 'list_all_tweets' %}" class="link link-hover font-bold text-2xl mx-4">Django Tweet App</a>
     </div>
-    <div class="navbar-end">
-        <a class="btn">Button</a>
+    <div class="navbar-end gap-2">
+        {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button class="btn btn-error text-xl">
+                    Logout
+                </button>
+            </form>
+        {% else %}
+            <a href="{% url 'register' %}" class="btn btn-ghost text-xl">Register</a>
+            <a href="{% url 'login' %}" class="btn btn-accent text-xl">Login</a>
+        {% endif %}
     </div>
 </nav>
 <main class="bg-base-300 min-h-[calc(100vh-4rem)] p-6">

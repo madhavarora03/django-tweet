@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+    <h1 class="text-5xl font-semibold mt-4 flex items-center gap-4">
+        <a class="" href="{% url 'list_all_tweets' %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="lucide lucide-circle-chevron-left">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="m14 16-4-4 4-4"></path>
+            </svg>
+        </a>
+        Register form
+    </h1>
+    <div class="divider"></div>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary text-lg">Register</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}" class="link link-hover link-info">Login Now!</a></p>
+{% endblock %}
