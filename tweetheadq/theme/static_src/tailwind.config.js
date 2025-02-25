@@ -47,6 +47,17 @@ module.exports = {
     daisyui: {
         themes: ['dark'],
     },
+    safelist: [
+        'textarea',
+        'textarea-bordered',
+        'h-48',
+        'block',
+        'mb-4',
+        'file-input',
+        'file-input-bordered',
+        'w-full',
+        'max-w-xs'
+    ],
     plugins: [
         /**
          * '@tailwindcss/forms' is the forms plugin that provides a minimal styling

@@ -1,10 +1,26 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Django Tweet App
+    {% if form.instance.pk %}Edit Tweet{% else %}Create Tweet{% endif %}| Django Tweet App
 {% endblock %}
 
 {% block content %}
-    <h1>Welcome to my website!</h1>
-    <p>This is a child template.</p>
+    <h1 class="text-5xl font-semibold mt-4">Welcome to Django Tweet App!</h1>
+    <h2 class="mt-6 text-3xl flex items-center gap-4">
+        <a class="" href="{% url 'list_all_tweets' %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="lucide lucide-circle-chevron-left">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="m14 16-4-4 4-4"></path>
+            </svg>
+        </a>
+
+        {% if form.instance.pk %}Edit Tweet{% else %}Create Tweet{% endif %}</h2>
+    <div class="divider"></div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary btn-outline text-lg">Submit</button>
+    </form>
 {% endblock %}

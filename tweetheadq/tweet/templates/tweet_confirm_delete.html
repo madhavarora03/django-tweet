@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Django Tweet App
+    {% if form.instance.pk %}Edit Tweet{% else %}Create Tweet{% endif %}| Django Tweet App
 {% endblock %}
 
 {% block content %}
-    <h1>Welcome to my website!</h1>
-    <p>This is a child template.</p>
+    <h1 class="text-5xl font-semibold mt-4">Are you sure you want to delete the tweet?</h1>
+    <div class="divider"></div>
+    <form method="post" enctype="multipart/form-data" class="space-x-3">
+        {% csrf_token %}
+        <button class="btn btn-error btn-outline text-lg">Delete</button>
+        <a href="{% url "list_all_tweets" %}" class="btn btn-primary text-lg">Cancel</a>
+    </form>
 {% endblock %}
