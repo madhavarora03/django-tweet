@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-(jl*2qhqtj(9)ai4k(zad)o%)1bkw11^c(&slhm(s!5dye&%5#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.onrender.com', 'localhost']
 
 # Application definition
 
@@ -49,7 +49,6 @@ INSTALLED_APPS = [
 
 TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = ['127.0.0.1']
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
