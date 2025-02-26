@@ -100,7 +100,7 @@ celerybeat-schedule.*
 *.sage.py
 
 # Environments
-tweetheadq/.env
+.env
 .venv
 env/
 venv/
